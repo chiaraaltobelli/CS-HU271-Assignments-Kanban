@@ -1,5 +1,5 @@
 // "import" the sum function from operations.js
-const {sum} = require('./operations')
+const {sum, division} = require('./operations')
 
 //TODO: uncomment the next line
 const {subtract} = require('./operations')
@@ -26,4 +26,16 @@ test('subtracts -5 from 12 to equal 17', () => {
 
 test('subtracts 2 from 10 to equal 8', () => {
     expect(subtract(10, 2)).toBe(8);
+})
+
+test('divides 8 by 2 to equal 4', () => {
+    expect(division(8, 2)).toBe(4);
+})
+
+test('divides 20 by 10 to equal 2', () => {
+    expect(division(20, 10)).toBe(2);
+})
+
+test('divides 3 by 0 to return undefined', () => {
+    expect(division(3, 0)).toBe(undefined);
 })
