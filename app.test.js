@@ -47,3 +47,17 @@ test('GET the sum api with the a valid first parameter and a missing second para
 test('should be listening', async () => {
     await request.get('/').expect(200);
 });
+
+test('GET the root route and expects body of the response to contain "This is my page!"', async () => {
+    const response = await request.get('/mypage')
+
+    expect(response.text).toContain("This is my page!")
+});
+
+test('GET the /aboutme route and expect a non-empty text', async () => {
+    const response = await request.get('/aboutme').expect(200)
+
+    expect(response.text.length).toBeGreaterThan(0)
+    // or
+    expect(response.text).toContain("about me page")
+});

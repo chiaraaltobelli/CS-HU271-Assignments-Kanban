@@ -3,11 +3,16 @@ const app = express()
 
 const { sum } = require('./operations.js')
 //TODO: uncomment the next line
-// const { subtract } = require('./operations.js')
+const { subtract } = require('./operations.js')
 
 // go to http://localhost:3000/ to see this message
 app.get('/', (req, res) => {
     res.send('Hello world!')
+});
+
+// go to http://localhost:3000/mypage to see this message
+app.get('/mypage', (req, res) => {
+    res.send('This is my page!')
 });
 
 // go to http://localhost:3000/about to see this message
@@ -16,6 +21,14 @@ app.get('/about', (req, res) => {
     console.log("A new request for the route '/about' received at " + new Date());
 
     res.send('This could be the about page...')
+});
+
+// go to http://localhost:3000/aboutme to see this message
+app.get('/aboutme', (req, res) => {
+    //this message should be displayed in the console that was used to start the server
+    console.log("A new request for the route '/aboutme' received at " + new Date());
+
+    res.send('This is an about me page')
 });
 
 // go to http://localhost:3000/api/operations/sum/3/5 to call this method and see the result 8
